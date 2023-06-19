@@ -1,0 +1,9 @@
+def run(index):
+
+    ua = UserAgent(use_cache_server=False)
+
+    response = requests.get(
+        f"https://ac.qq.com/Comic/index/page/{index}", headers={'User-Agent': ua.random})
+    html = response.text
+    format_html(html)
+    semaphore.release()
